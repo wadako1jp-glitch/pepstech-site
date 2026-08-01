@@ -57,12 +57,15 @@ def md_to_html(body: str) -> str:
     return result.stdout.strip()
 
 
-def make_excerpt(body: str, limit: int = 60) -> str:
-    for line in body.splitlines():
-        line = line.strip().lstrip("#").strip()
-        if line:
-            return (line[:limit] + "…") if len(line) > limit else line
-    return ""
+def split_title_and_excerpt(body: str, limit: int = 60):
+    lines = [l.strip() for l in body.splitlines() if l.strip()]
+    if not lines:
+        return None, ""
+    title = lines[0].lstrip("#").strip()
+    excerpt_source = lines[1] if len(lines) > 1 else lines[0]
+    excerpt_source = excerpt_source.lstrip("#").strip()
+    excerpt = (excerpt_source[:limit] + "…") if len(excerpt_source) > limit else excerpt_source
+    return title, excerpt
 
 
 def note_page_html(title: str, date: str, body_html: str) -> str:
@@ -141,8 +144,13 @@ def main():
             print(f"[skip] 日付が特定できません: {md_path.name}", file=sys.stderr)
             continue
 
-        title = meta.get("title") or date
-        excerpt = meta.get("excerpt") or make_excerpt(body)
+        if not body.strip():
+            print(f"[skip] 本文が空です（publish: true だが書きかけの可能性）: {md_path.name}", file=sys.stderr)
+            continue
+
+        auto_title, auto_excerpt = split_title_and_excerpt(body)
+        title = meta.get("title") or auto_title or date
+        excerpt = meta.get("excerpt") or auto_excerpt
         slug = date
 
         body_html = md_to_html(body)
