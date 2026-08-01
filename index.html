@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pepstech</title>
+<meta name="description" content="ITコンサルタント Pepstech の個人サイト。仕事のこと、つくったもの、そうでない話。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a href="#top" class="wordmark">Pepstech</a>
+    <nav>
+      <a href="#about">はじめに</a>
+      <a href="#notes">書きもの</a>
+      <a href="#making">つくったもの</a>
+      <a href="#contact">連絡先</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="opening">
+    <div class="wrap">
+      <p class="kicker">Pepstech — 個人サイト</p>
+      <h1 class="lede">
+        昼は資料、<br>
+        夜は赤提灯。
+      </h1>
+      <p class="lede-sub">
+        ITコンサルティングの仕事をしています。技術的な話は、だいたい好きです。
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="about" class="block">
+    <div class="wrap two-col">
+      <h2 class="block-title">はじめに</h2>
+      <div class="block-body">
+        <p>
+          ITコンサルティングに従事中。お客さんの困りごとを分解して、順番に並べていく。
+          仕事の中身は、ほとんどこれです。
+        </p>
+        <p>
+          M365まわりの技術は仕事で触ってきました。とはいえ、技術的な話は大抵好きです。
+        </p>
+        <p>
+          あとは赤提灯。だいたい週の後半に一回。
+        </p>
+        <p>
+          仕事の話も、そうでない話も、まとめてここに置いておきます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="notes" class="block">
+    <div class="wrap two-col">
+      <h2 class="block-title">書きもの</h2>
+      <div class="block-body">
+        <p class="note-intro">
+          考えたことの記録。頻度は不定期で、書きたくなったときに書いています。
+        </p>
+
+        <ol class="entries">
+          <li>
+            <a href="#">
+              <span class="entry-date">2026.00.00</span>
+              <span class="entry-title">記事タイトルをここに</span>
+              <span class="entry-excerpt">冒頭の一文か、要約を一行。リンク先は後から差し替えてください。</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="entry-date">2026.00.00</span>
+              <span class="entry-title">記事タイトルをここに</span>
+              <span class="entry-excerpt">冒頭の一文か、要約を一行。</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="entry-date">2026.00.00</span>
+              <span class="entry-title">記事タイトルをここに</span>
+              <span class="entry-excerpt">冒頭の一文か、要約を一行。</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="making" class="block">
+    <div class="wrap two-col">
+      <h2 class="block-title">つくったもの</h2>
+      <div class="block-body">
+        <p class="note-intro">
+          手を動かした結果。完成しているものも、途中で止まっているものもあります。
+        </p>
+
+        <div class="works">
+          <article class="work">
+            <h3>プロジェクト名</h3>
+            <p class="work-meta">2026 / 使った技術やツール</p>
+            <p>何をつくったのか、なぜつくったのか。二、三行あれば十分です。</p>
+            <a class="quiet-link" href="#">見る</a>
+          </article>
+
+          <article class="work">
+            <h3>プロジェクト名</h3>
+            <p class="work-meta">2026 / 使った技術やツール</p>
+            <p>何をつくったのか、なぜつくったのか。</p>
+            <a class="quiet-link" href="#">見る</a>
+          </article>
+
+          <article class="work">
+            <h3>プロジェクト名</h3>
+            <p class="work-meta">2026 / 使った技術やツール</p>
+            <p>何をつくったのか、なぜつくったのか。</p>
+            <a class="quiet-link" href="#">見る</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="contact" class="block">
+    <div class="wrap two-col">
+      <h2 class="block-title">連絡先</h2>
+      <div class="block-body">
+        <p>
+          仕事の相談でも、雑談でも。返信は遅いことがあります。
+        </p>
+        <ul class="contacts">
+          <li><span class="ct-label">Mail</span><a href="mailto:wadakojp@pepstech.pw">wadakojp@pepstech.pw</a></li>
+          <li><span class="ct-label">GitHub</span><a href="https://github.com/wadako1jp-glitch" target="_blank" rel="noopener">github.com/wadako1jp-glitch</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <p>Pepstech — <span id="year"></span></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
