@@ -14,7 +14,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-VAULT_DAILY = Path.home() / "Documents" / "Pepstech-Journal" / "Daily"
+if "com.termux" in str(Path.home()):
+    # Android (Termux): Syncthing 経由で ~/storage/shared/Documents 配下に同期している
+    VAULT_DAILY = Path.home() / "storage" / "shared" / "Documents" / "Pepstech-Journal" / "Daily"
+else:
+    VAULT_DAILY = Path.home() / "Documents" / "Pepstech-Journal" / "Daily"
+
 SITE_DIR = Path(__file__).resolve().parent.parent
 NOTES_DIR = SITE_DIR / "notes"
 INDEX_HTML = SITE_DIR / "index.html"
