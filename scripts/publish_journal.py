@@ -25,6 +25,8 @@ NOTES_DIR = SITE_DIR / "notes"
 INDEX_HTML = SITE_DIR / "index.html"
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+# 本文1行目の先頭につけがちな「0801」「08/01」のような日付風メモを取り除く
+TITLE_DATE_PREFIX_RE = re.compile(r"^\d{1,2}[/\-]?\d{1,2}\s+")
 
 
 def parse_frontmatter(text: str):
@@ -62,6 +64,7 @@ def split_title_and_excerpt(body: str, limit: int = 60):
     if not lines:
         return None, ""
     title = lines[0].lstrip("#").strip()
+    title = TITLE_DATE_PREFIX_RE.sub("", title).strip() or title
     excerpt_source = lines[1] if len(lines) > 1 else lines[0]
     excerpt_source = excerpt_source.lstrip("#").strip()
     excerpt = (excerpt_source[:limit] + "…") if len(excerpt_source) > limit else excerpt_source
